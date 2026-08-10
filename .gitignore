@@ -1,0 +1,22 @@
+# Raw data (large, and publicly downloadable from Kaggle — no need to commit)
+data/raw/*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets — never commit API keys
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Power BI temp files
+*.pbix.bak

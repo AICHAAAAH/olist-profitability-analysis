@@ -1,0 +1,8 @@
+segment,customers,avg_recency_days,avg_frequency,total_monetary,avg_monetary,pct_of_customers,pct_of_revenue
+"Cannot Lose Them (high spend, going quiet)",22676,364.2,1.0,6053521.0,267.0,24.3,39.3
+New / Recent Customers,22613,57.5,1.0,3723035.4,164.6,24.2,24.1
+Needs Attention,22685,166.6,1.0,3599761.3,158.7,24.3,23.3
+Lost / Low Value,23749,365.1,1.0,1519593.7,64.0,25.4,9.9
+Loyal Customers,1473,115.8,2.1,440347.3,298.9,1.6,2.9
+Champions,76,57.1,3.6,47180.0,620.8,0.1,0.3
+At Risk,86,362.9,3.2,39023.1,453.8,0.1,0.3
