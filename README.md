@@ -22,10 +22,17 @@ Full detail and recommended actions: [`reports/executive_summary.pdf`](reports/e
 ## Dashboard
 
 **Page 1 — Category Profitability**
-![Category profitability dashboard](reports/screenshots/dashboard__category_profitability.png)
+![Category profitability dashboard](reports/screenshots/Dashboard__category_profitability.png)
 
 **Page 2 — Customer Segmentation**
-![Customer segmentation dashboard](reports/screenshots/dashboard_customer_segmentation.png)
+![Customer segmentation dashboard](reports/screenshots/D
+
+
+
+
+
+
+ashboard_customer_segmentation.png)
 
 ## Project Structure
 
