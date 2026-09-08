@@ -25,8 +25,7 @@ Full detail and recommended actions: [`reports/executive_summary.pdf`](reports/e
 ![Category profitability dashboard](reports/screenshots/Dashboard__category_profitability.png)
 
 **Page 2 — Customer Segmentation**
-![Customer segmentation dashboard](reports/screenshots/D
-
+![Customer segmentation dashboard](reports/screenshots/Dashboard_customer_segmentation.png)
 
 
 
