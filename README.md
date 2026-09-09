@@ -27,12 +27,6 @@ Full detail and recommended actions: [`reports/executive_summary.pdf`](reports/e
 **Page 2 — Customer Segmentation**
 ![Customer segmentation dashboard](reports/screenshots/Dashboard_customer_segmentation.png)
 
-
-
-
-
-ashboard_customer_segmentation.png)
-
 ## Project Structure
 
 ```
