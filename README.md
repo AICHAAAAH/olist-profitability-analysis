@@ -9,12 +9,16 @@ An end-to-end analytics project identifying where revenue is being converted int
 ## Key Findings
 
 **1. Telephony converts revenue to margin least efficiently of any top-15 category.**
+
 It generates R$309,860 in revenue (14th among 71 categories) but converts only **49.24%** of that into margin after shipping cost — nearly 21 points below the next-lowest top-15 category (housewares, 59.70%) and less than half the efficiency of the strongest performer (computers, 94.33%). Since shipping cost tracks fairly closely with revenue at the category level overall, this gap is unusually specific to telephony and worth a freight-pricing review.
 
 **2. A quarter of customers drive 39.3% of revenue — and they've gone quiet.**
+
 RFM segmentation identified 22,676 customers (24.3% of the customer base) in the **"Cannot Lose Them"** segment, representing higher-value customers with low recency and frequency scores. They contributed R$6.05M in total revenue (39.3% of revenue). Their average recency is **364 days**, indicating that this high-value segment has been inactive for nearly a year. Combined with an average order frequency of just 1.03 across the entire customer base, this indicates that repeat purchasing is relatively limited.
 
-**3. Delivery delay is the strongest predictive signal associated with customer churn — reinforcing Finding 1.**A churn prediction model (Random Forest, ROC-AUC 0.606, built with recency deliberately excluded from the feature set to avoid data leakage) identified delivery delay as the strongest feature, accounting for **53% of the model's feature importance** — more than five times the importance of total spend or order value. This suggests shipping inefficiency carries both a margin cost (Finding 1) and a customer-retention risk. Model performance is modest in absolute terms and is presented as directional evidence, not a production-ready tool. Full methodology in [`notebooks/04_churn_prediction.ipynb`](notebooks/04_churn_prediction.ipynb).
+**3. Delivery delay is the strongest predictive signal associated with customer churn — reinforcing Finding 1.**
+
+A churn prediction model (Random Forest, ROC-AUC 0.606, built with recency deliberately excluded from the feature set to avoid data leakage) identified delivery delay as the strongest feature, accounting for **53% of the model's feature importance** — more than five times the importance of total spend or order value. This suggests shipping inefficiency carries both a margin cost (Finding 1) and a customer-retention risk. Model performance is modest in absolute terms and is presented as directional evidence, not a production-ready tool. Full methodology in [`notebooks/04_churn_prediction.ipynb`](notebooks/04_churn_prediction.ipynb).
 
 For the full analysis and recommendations, see the [`Executive Summary`](reports/executive_summary.pdf).
 
