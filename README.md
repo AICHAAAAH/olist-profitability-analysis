@@ -11,14 +11,19 @@ An end-to-end analytics project identifying where revenue is being converted int
 **1. Telephony converts revenue to margin least efficiently of any top-15 category.**
 It generates R$309,860 in revenue (14th among 71 categories) but converts only **49.24%** of that into margin after shipping cost — nearly 21 points below the next-lowest top-15 category (housewares, 59.70%) and less than half the efficiency of the strongest performer (computers, 94.33%). Since shipping cost tracks fairly closely with revenue at the category level overall, this gap is unusually specific to telephony and worth a freight-pricing review.
 
-**2. A quarter of customers drive 39% of revenue — and they've gone quiet.**
-RFM segmentation identified 22,676 customers (24.3% of the customer base) with historically high spend, contributing R$6.05M in total revenue. Their average recency is **364 days** — this segment hasn't purchased in nearly a year. Combined with an average order frequency of just 1.03 across the entire customer base, this points to a business built almost entirely on one-time buyers, with no structural mechanism currently in place to bring valuable customers back.
+**2. A quarter of customers drive 39.3% of revenue — and they've gone quiet.**
+RFM segmentation identified 22,676 customers (24.3% of the customer base) in the **"Cannot Lose Them"** segment, representing higher-value customers with low recency and frequency scores. They contributed R$6.05M in total revenue (39.3% of revenue). Their average recency is **364 days**, indicating that this high-value segment has been inactive for nearly a year. Combined with an average order frequency of just 1.03 across the entire customer base, this indicates that repeat purchasing is relatively limited.
 
-**3. Delivery delay is the strongest predictor of customer churn — reinforcing Finding 1.**
-A churn prediction model (Random Forest, ROC-AUC 0.606, built with recency deliberately excluded from the feature set to avoid data leakage) found that delivery delay accounts for **53% of the model's predictive signal** — more than five times the influence of total spend or order value. This suggests shipping inefficiency carries both a margin cost (Finding 1) and a customer-retention cost. Model performance is modest in absolute terms and is presented as directional evidence, not a production-ready tool. Full methodology in [`notebooks/04_churn_prediction.ipynb`](notebooks/04_churn_prediction.ipynb).
+**3. Delivery delay is the strongest predictive signal associated with customer churn — reinforcing Finding 1.**A churn prediction model (Random Forest, ROC-AUC 0.606, built with recency deliberately excluded from the feature set to avoid data leakage) identified delivery delay as the strongest feature, accounting for **53% of the model's feature importance** — more than five times the importance of total spend or order value. This suggests shipping inefficiency carries both a margin cost (Finding 1) and a customer-retention risk. Model performance is modest in absolute terms and is presented as directional evidence, not a production-ready tool. Full methodology in [`notebooks/04_churn_prediction.ipynb`](notebooks/04_churn_prediction.ipynb).
 
-Full detail and recommended actions: [`reports/executive_summary.pdf`](reports/executive_summary.pdf)
+For the full analysis and recommendations, see the [`Executive Summary`](reports/executive_summary.pdf).
 
+## Business Recommendations
+
+- **Review telephony shipping economics** — investigate freight pricing, packaging weight, and dimensions to identify the source of margin erosion.
+- **Launch targeted win-back campaigns** — prioritize high-value inactive customers with long recency before more customer value is lost.
+- **Improve delivery reliability** — investigate delivery delays and consider proactive outreach after significantly delayed orders.
+  
 ## Dashboard
 
 **Page 1 — Category Profitability**
@@ -83,7 +88,7 @@ olist-profitability-analysis/
    psql -U postgres -d olist_analysis -f sql/02_load_data.sql
    psql -U postgres -d olist_analysis -f sql/03_profitability_view.sql
    ```
-4. **Install Python dependencies** and run the notebooks in order (01 → 02 → 03):
+4. **Install Python dependencies** and run the notebooks in order (01 → 02 → 03 → 04):
    ```
    pip install -r requirements.txt
    jupyter notebook
@@ -93,6 +98,7 @@ olist-profitability-analysis/
 ## Methodology Notes & Limitations
 
 - **Margin proxy, not true profit**: Olist's public dataset does not include cost-of-goods-sold or discount data. Margin is approximated as `price − freight_value` per item — a measure of shipping-cost efficiency, not full profitability. This is stated explicitly rather than presented as a true margin figure.
+- **RFM monetary value**: Monetary represents total recorded payment value for delivered orders, aggregated at the customer level.
 - **Delivered orders only**: all revenue and margin figures exclude non-delivered orders (2.98% of all orders — cancelled, unavailable, still processing, etc.), since these don't represent completed sales.
 - **Category translation gaps**: a small number of products (1.36% of total revenue) have category names with no matching English translation in Kaggle's source data. These are excluded from category-level breakdowns rather than guessed at; full detail and the underlying data-quality check are in `notebooks/01_data_cleaning.ipynb`.
 - **RFM segment sizes reflect the dataset's buying pattern**: because most Olist customers are one-time buyers, segments requiring high frequency (e.g. "Champions") are naturally small. This is a real characteristic of the business, not a modeling flaw — noted directly in `notebooks/03_customer_segmentation.ipynb`.
